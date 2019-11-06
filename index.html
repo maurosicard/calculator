@@ -1,0 +1,1020 @@
+<script>window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+
+for (var attr in meta) {
+  window.ShopifyAnalytics.meta[attr] = meta[attr];
+}</script>
+
+<script class="analytics">(window.gaDevIds=window.gaDevIds||[]).push('BwiEti');
+
+
+(function () {
+  var customDocumentWrite = function(content) {
+    var jquery = null;
+
+    if (window.jQuery) {
+      jquery = window.jQuery;
+    } else if (window.Checkout && window.Checkout.$) {
+      jquery = window.Checkout.$;
+    }
+
+    if (jquery) {
+      jquery('body').append(content);
+    }
+  };
+
+  var isDuplicatedThankYouPageView = function() {
+    return document.cookie.indexOf('loggedConversion=' + window.location.pathname) !== -1;
+  }
+
+  var setCookieIfThankYouPage = function() {
+}
+
+  var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+  if (trekkie.integrations) {
+    return;
+  }
+  trekkie.methods = [
+    'identify',
+    'page',
+    'ready',
+    'track',
+    'trackForm',
+    'trackLink'
+  ];
+
+  trekkie.factory = function(method) {
+    return function() {
+      var args = Array.prototype.slice.call(arguments);
+      args.unshift(method);
+      trekkie.push(args);
+      return trekkie;
+    };
+  };
+  for (var i = 0; i < trekkie.methods.length; i++) {
+    var key = trekkie.methods[i];
+    trekkie[key] = trekkie.factory(key);
+  }
+  trekkie.load = function(config) {
+    trekkie.config = config;
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onerror = function(e) {
+      (new Image()).src = '//v.shopify.com/internal_errors/track?error=trekkie_load';
+    };
+    script.async = true;
+    script.src = 'https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js?v=2019.11.04.1';
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(script, first);
+  };
+  trekkie.load(
+    {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":2028072,"isMerchantRequest":null,"themeId":77821247511,"themeCityHash":"4666737615294641760","contentLanguage":"en","currency":"USD"}},"Performance":{"navigationTimingApiMeasurementsEnabled":true,"navigationTimingApiMeasurementsSampleRate":1},"Google Analytics":{"trackingId":"UA-39333144-1","domain":"auto","siteSpeedSampleRate":"10","enhancedEcommerce":true,"doubleClick":true,"includeSearch":true},"Facebook Pixel":{"pixelIds":["876939609077456"],"agent":"plshopify1.2"},"Google Gtag Pixel":{"conversionId":"AW-877791215","eventLabels":[{"type":"page_view","action_label":"AW-877791215\/E6m0CNr7nK4BEO-PyKID"},{"type":"purchase","action_label":"AW-877791215\/R6iMCN37nK4BEO-PyKID"},{"type":"view_item","action_label":"AW-877791215\/YKViCOD7nK4BEO-PyKID"},{"type":"add_to_cart","action_label":"AW-877791215\/fu-oCOP7nK4BEO-PyKID"},{"type":"begin_checkout","action_label":"AW-877791215\/zvrfCOb7nK4BEO-PyKID"},{"type":"search","action_label":"AW-877791215\/w93CCOn7nK4BEO-PyKID"},{"type":"add_payment_info","action_label":"AW-877791215\/qT-gCOz7nK4BEO-PyKID"}],"targetCountry":"US"},"Session Attribution":{}}
+  );
+
+  var loaded = false;
+  trekkie.ready(function() {
+    if (loaded) return;
+    loaded = true;
+
+    window.ShopifyAnalytics.lib = window.trekkie;
+    
+      ga('require', 'linker');
+      function addListener(element, type, callback) {
+        if (element.addEventListener) {
+          element.addEventListener(type, callback);
+        }
+        else if (element.attachEvent) {
+          element.attachEvent('on' + type, callback);
+        }
+      }
+      function decorate(event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement;
+        if (target && (target.getAttribute('action') || target.getAttribute('href'))) {
+          ga(function (tracker) {
+            var linkerParam = tracker.get('linkerParam');
+            document.cookie = '_shopify_ga=' + linkerParam + '; ' + 'path=/';
+          });
+        }
+      }
+      addListener(window, 'load', function(){
+
+      });
+    
+
+    var originalDocumentWrite = document.write;
+    document.write = customDocumentWrite;
+    try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+    document.write = originalDocumentWrite;
+      (function () {
+        if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
+          return;
+        }
+        window.BOOMR = window.BOOMR || {};
+        window.BOOMR.snippetStart = new Date().getTime();
+        var where = document.currentScript || document.getElementsByTagName("script")[0];
+        if (!where || !where.parentNode){
+          return;
+        }
+        var promoted = false;
+        var LOADER_TIMEOUT = 3000;
+        function promote() {
+          if (promoted) {
+            return;
+          }
+          var script = document.createElement("script");
+          script.id = "boomr-scr-as";
+          script.src = window.BOOMR.url;
+          script.async = true;
+          where.parentNode.appendChild(script);
+          promoted = true;
+        }
+      
+        function boomerangSaveLoadTime(e) {
+          window.BOOMR_onload = (e && e.timeStamp) || new Date().getTime();
+        }
+        if (window.addEventListener) {
+          window.addEventListener("load", boomerangSaveLoadTime, false);
+        } else if (window.attachEvent) {
+          window.attachEvent("onload", boomerangSaveLoadTime);
+        }
+        if (document.addEventListener) {
+          document.addEventListener("onBoomerangLoaded", function(e) {
+            e.detail.BOOMR.init({});
+            e.detail.BOOMR.t_end = new Date().getTime();
+          });
+        } else if (document.attachEvent) {
+          document.attachEvent("onpropertychange", function(e) {
+            if (!e) e=event;
+            if (e.propertyName === "onBoomerangLoaded") {
+              e.detail.BOOMR.init({});
+              e.detail.BOOMR.t_end = new Date().getTime();
+            }
+          });
+        }
+      })();
+    
+
+    if (!isDuplicatedThankYouPageView()) {
+      setCookieIfThankYouPage();
+      
+        
+    }
+  });
+
+  
+})();
+</script>
+
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+  <script src="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/jquery.easing.js?50493" type="text/javascript"></script>
+
+  <script src="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/rangeslider.min.js?50493" type="text/javascript"></script>
+  <link href="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/rangeslider.css?50493" rel="stylesheet" type="text/css" media="all" />
+  
+ 
+
+
+
+  <!-- department.nyc -->
+  <script src="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/libraries.min.js?50493" type="text/javascript"></script>
+  <link href="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/timber.scss.css?50493" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/slick.css?50493" rel="stylesheet" type="text/css" media="all" />
+  <link href="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/custom.css?50493" rel="stylesheet" type="text/css" media="all" />
+
+
+  <script src="//cdn.shopify.com/s/files/1/0202/8072/t/100/assets/main.coffee.js?50493" type="text/javascript"></script>
+
+
+
+
+
+</head>
+
+<body id="tri-blend-classic-crew" class="template-product " >
+
+  <div id="shopify-section-static-find-your-fit" class="shopify-section">
+
+
+<div class="relative" js-controller="findYourFit">
+  
+  <script type="text/data" data-find-your-fit-data>HEIGHT,WEIGHT,DESIRED FIT,RECOMMENDED SIZE
+5'2,120 lbs,Tight,XS
+5'2,130 lbs,Tight,XS
+5'2,140 lbs,Tight,S
+5'2,150 lbs,Tight,M
+5'2,160 lbs,Tight,M
+5'2,170 lbs,Tight,M
+5'2,180 lbs,Tight,L
+5'2,190 lbs,Tight,L
+5'2,200 lbs,Tight,XL
+5'2,210 lbs,Tight,XL
+5'2,220 lbs,Tight,XL
+5'2,230 lbs,Tight,XXL
+5'2,240 lbs,Tight,XXL
+5'2,250 lbs,Tight,XXL
+5'2,120 lbs,Average,XS
+5'2,130 lbs,Average,XS
+5'2,140 lbs,Average,S
+5'2,150 lbs,Average,M
+5'2,160 lbs,Average,M
+5'2,170 lbs,Average,M
+5'2,180 lbs,Average,L
+5'2,190 lbs,Average,L
+5'2,200 lbs,Average,XL
+5'2,210 lbs,Average,XL
+5'2,220 lbs,Average,XL
+5'2,230 lbs,Average,XXL
+5'2,240 lbs,Average,XXL
+5'2,250 lbs,Average,XXL
+5'2,120 lbs,Loose,S
+5'2,130 lbs,Loose,S
+5'2,140 lbs,Loose,M
+5'2,150 lbs,Loose,L
+5'2,160 lbs,Loose,L
+5'2,170 lbs,Loose,L
+5'2,180 lbs,Loose,XL
+5'2,190 lbs,Loose,XL
+5'2,200 lbs,Loose,XXL
+5'2,210 lbs,Loose,XXL
+5'2,220 lbs,Loose,XXL
+5'2,230 lbs,Loose,XXL
+5'2,240 lbs,Loose,XXL
+5'2,250 lbs,Loose,XXL
+5'3,120 lbs,Tight,XS
+5'3,130 lbs,Tight,XS
+5'3,140 lbs,Tight,S
+5'3,150 lbs,Tight,M
+5'3,160 lbs,Tight,M
+5'3,170 lbs,Tight,M
+5'3,180 lbs,Tight,L
+5'3,190 lbs,Tight,L
+5'3,200 lbs,Tight,XL
+5'3,210 lbs,Tight,XL
+5'3,220 lbs,Tight,XL
+5'3,230 lbs,Tight,XXL
+5'3,240 lbs,Tight,XXL
+5'3,250 lbs,Tight,XXL
+5'3,120 lbs,Average,XS
+5'3,130 lbs,Average,XS
+5'3,140 lbs,Average,S
+5'3,150 lbs,Average,M
+5'3,160 lbs,Average,M
+5'3,170 lbs,Average,M
+5'3,180 lbs,Average,L
+5'3,190 lbs,Average,L
+5'3,200 lbs,Average,XL
+5'3,210 lbs,Average,XL
+5'3,220 lbs,Average,XL
+5'3,230 lbs,Average,XXL
+5'3,240 lbs,Average,XXL
+5'3,250 lbs,Average,XXL
+5'3,120 lbs,Loose,S
+5'3,130 lbs,Loose,S
+5'3,140 lbs,Loose,M
+5'3,150 lbs,Loose,L
+5'3,160 lbs,Loose,L
+5'3,170 lbs,Loose,L
+5'3,180 lbs,Loose,XL
+5'3,190 lbs,Loose,XL
+5'3,200 lbs,Loose,XXL
+5'3,210 lbs,Loose,XXL
+5'3,220 lbs,Loose,XXL
+5'3,230 lbs,Loose,XXL
+5'3,240 lbs,Loose,XXL
+5'3,250 lbs,Loose,XXL
+5'4,120 lbs,Tight,XS
+5'4,130 lbs,Tight,XS
+5'4,140 lbs,Tight,S
+5'4,150 lbs,Tight,M
+5'4,160 lbs,Tight,M
+5'4,170 lbs,Tight,M
+5'4,180 lbs,Tight,L
+5'4,190 lbs,Tight,L
+5'4,200 lbs,Tight,XL
+5'4,210 lbs,Tight,XL
+5'4,220 lbs,Tight,XL
+5'4,230 lbs,Tight,XXL
+5'4,240 lbs,Tight,XXL
+5'4,250 lbs,Tight,XXL
+5'4,120 lbs,Average,XS
+5'4,130 lbs,Average,XS
+5'4,140 lbs,Average,S
+5'4,150 lbs,Average,M
+5'4,160 lbs,Average,M
+5'4,170 lbs,Average,M
+5'4,180 lbs,Average,L
+5'4,190 lbs,Average,L
+5'4,200 lbs,Average,XL
+5'4,210 lbs,Average,XL
+5'4,220 lbs,Average,XL
+5'4,230 lbs,Average,XXL
+5'4,240 lbs,Average,XXL
+5'4,250 lbs,Average,XXL
+5'4,120 lbs,Loose,S
+5'4,130 lbs,Loose,S
+5'4,140 lbs,Loose,M
+5'4,150 lbs,Loose,L
+5'4,160 lbs,Loose,L
+5'4,170 lbs,Loose,L
+5'4,180 lbs,Loose,XL
+5'4,190 lbs,Loose,XL
+5'4,200 lbs,Loose,XXL
+5'4,210 lbs,Loose,XXL
+5'4,220 lbs,Loose,XXL
+5'4,230 lbs,Loose,XXL
+5'4,240 lbs,Loose,XXL
+5'4,250 lbs,Loose,XXL
+5'5,120 lbs,Tight,S
+5'5,130 lbs,Tight,S
+5'5,140 lbs,Tight,S
+5'5,150 lbs,Tight,M
+5'5,160 lbs,Tight,M
+5'5,170 lbs,Tight,M
+5'5,180 lbs,Tight,L
+5'5,190 lbs,Tight,L
+5'5,200 lbs,Tight,XL
+5'5,210 lbs,Tight,XL
+5'5,220 lbs,Tight,XL
+5'5,230 lbs,Tight,XXL
+5'5,240 lbs,Tight,XXL
+5'5,250 lbs,Tight,XXL
+5'5,120 lbs,Average,S
+5'5,130 lbs,Average,S
+5'5,140 lbs,Average,S
+5'5,150 lbs,Average,M
+5'5,160 lbs,Average,M
+5'5,170 lbs,Average,M
+5'5,180 lbs,Average,L
+5'5,190 lbs,Average,L
+5'5,200 lbs,Average,XL
+5'5,210 lbs,Average,XL
+5'5,220 lbs,Average,XL
+5'5,230 lbs,Average,XXL
+5'5,240 lbs,Average,XXL
+5'5,250 lbs,Average,XXL
+5'5,120 lbs,Loose,M
+5'5,130 lbs,Loose,M
+5'5,140 lbs,Loose,L
+5'5,150 lbs,Loose,L
+5'5,160 lbs,Loose,XL
+5'5,170 lbs,Loose,XL
+5'5,180 lbs,Loose,XL
+5'5,190 lbs,Loose,XXL
+5'5,200 lbs,Loose,XXL
+5'5,210 lbs,Loose,XXL
+5'5,220 lbs,Loose,XXL
+5'5,230 lbs,Loose,XXL
+5'5,240 lbs,Loose,XXL
+5'5,250 lbs,Loose,XXL
+5'6,120 lbs,Tight,S
+5'6,130 lbs,Tight,S
+5'6,140 lbs,Tight,S
+5'6,150 lbs,Tight,M
+5'6,160 lbs,Tight,M
+5'6,170 lbs,Tight,M
+5'6,180 lbs,Tight,L
+5'6,190 lbs,Tight,L
+5'6,200 lbs,Tight,XL
+5'6,210 lbs,Tight,XL
+5'6,220 lbs,Tight,XL
+5'6,230 lbs,Tight,XXL
+5'6,240 lbs,Tight,XXL
+5'6,250 lbs,Tight,XXL
+5'6,120 lbs,Average,S
+5'6,130 lbs,Average,S
+5'6,140 lbs,Average,S
+5'6,150 lbs,Average,M
+5'6,160 lbs,Average,M
+5'6,170 lbs,Average,M
+5'6,180 lbs,Average,L
+5'6,190 lbs,Average,L
+5'6,200 lbs,Average,XL
+5'6,210 lbs,Average,XL
+5'6,220 lbs,Average,XL
+5'6,230 lbs,Average,XXL
+5'6,240 lbs,Average,XXL
+5'6,250 lbs,Average,XXL
+5'6,120 lbs,Loose,M
+5'6,130 lbs,Loose,M
+5'6,140 lbs,Loose,L
+5'6,150 lbs,Loose,L
+5'6,160 lbs,Loose,XL
+5'6,170 lbs,Loose,XL
+5'6,180 lbs,Loose,XL
+5'6,190 lbs,Loose,XXL
+5'6,200 lbs,Loose,XXL
+5'6,210 lbs,Loose,XXL
+5'6,220 lbs,Loose,XXL
+5'6,230 lbs,Loose,XXL
+5'6,240 lbs,Loose,XXL
+5'6,250 lbs,Loose,XXL
+5'7,120 lbs,Tight,S
+5'7,130 lbs,Tight,S
+5'7,140 lbs,Tight,S
+5'7,150 lbs,Tight,M
+5'7,160 lbs,Tight,M
+5'7,170 lbs,Tight,M
+5'7,180 lbs,Tight,L
+5'7,190 lbs,Tight,L
+5'7,200 lbs,Tight,XL
+5'7,210 lbs,Tight,XL
+5'7,220 lbs,Tight,XL
+5'7,230 lbs,Tight,XXL
+5'7,240 lbs,Tight,XXL
+5'7,250 lbs,Tight,XXL
+5'7,120 lbs,Average,S
+5'7,130 lbs,Average,S
+5'7,140 lbs,Average,S
+5'7,150 lbs,Average,M
+5'7,160 lbs,Average,M
+5'7,170 lbs,Average,M
+5'7,180 lbs,Average,L
+5'7,190 lbs,Average,L
+5'7,200 lbs,Average,XL
+5'7,210 lbs,Average,XL
+5'7,220 lbs,Average,XL
+5'7,230 lbs,Average,XXL
+5'7,240 lbs,Average,XXL
+5'7,250 lbs,Average,XXL
+5'7,120 lbs,Loose,M
+5'7,130 lbs,Loose,M
+5'7,140 lbs,Loose,L
+5'7,150 lbs,Loose,L
+5'7,160 lbs,Loose,XL
+5'7,170 lbs,Loose,XL
+5'7,180 lbs,Loose,XL
+5'7,190 lbs,Loose,XXL
+5'7,200 lbs,Loose,XXL
+5'7,210 lbs,Loose,XXL
+5'7,220 lbs,Loose,XXL
+5'7,230 lbs,Loose,XXL
+5'7,240 lbs,Loose,XXL
+5'7,250 lbs,Loose,XXL
+5'8,120 lbs,Tight,S
+5'8,130 lbs,Tight,S
+5'8,140 lbs,Tight,S
+5'8,150 lbs,Tight,M
+5'8,160 lbs,Tight,M
+5'8,170 lbs,Tight,M
+5'8,180 lbs,Tight,L
+5'8,190 lbs,Tight,L
+5'8,200 lbs,Tight,L
+5'8,210 lbs,Tight,XL
+5'8,220 lbs,Tight,XL
+5'8,230 lbs,Tight,XXL
+5'8,240 lbs,Tight,XXL
+5'8,250 lbs,Tight,XXL
+5'8,120 lbs,Average,S
+5'8,130 lbs,Average,S
+5'8,140 lbs,Average,S
+5'8,150 lbs,Average,M
+5'8,160 lbs,Average,M
+5'8,170 lbs,Average,M
+5'8,180 lbs,Average,L
+5'8,190 lbs,Average,L
+5'8,200 lbs,Average,XL
+5'8,210 lbs,Average,XL
+5'8,220 lbs,Average,XL
+5'8,230 lbs,Average,XXL
+5'8,240 lbs,Average,XXL
+5'8,250 lbs,Average,XXL
+5'8,120 lbs,Loose,M
+5'8,130 lbs,Loose,M
+5'8,140 lbs,Loose,L
+5'8,150 lbs,Loose,L
+5'8,160 lbs,Loose,XL
+5'8,170 lbs,Loose,XL
+5'8,180 lbs,Loose,XL
+5'8,190 lbs,Loose,XXL
+5'8,200 lbs,Loose,XXL
+5'8,210 lbs,Loose,XXL
+5'8,220 lbs,Loose,XXL
+5'8,230 lbs,Loose,XXL
+5'8,240 lbs,Loose,XXL
+5'8,250 lbs,Loose,XXL
+5'9,120 lbs,Tight,S
+5'9,130 lbs,Tight,S
+5'9,140 lbs,Tight,S
+5'9,150 lbs,Tight,S
+5'9,160 lbs,Tight,M
+5'9,170 lbs,Tight,M
+5'9,180 lbs,Tight,M
+5'9,190 lbs,Tight,L
+5'9,200 lbs,Tight,L
+5'9,210 lbs,Tight,XL
+5'9,220 lbs,Tight,XL
+5'9,230 lbs,Tight,XXL
+5'9,240 lbs,Tight,XXL
+5'9,250 lbs,Tight,XXL
+5'9,120 lbs,Average,S
+5'9,130 lbs,Average,S
+5'9,140 lbs,Average,S
+5'9,150 lbs,Average,M
+5'9,160 lbs,Average,M
+5'9,170 lbs,Average,L
+5'9,180 lbs,Average,L
+5'9,190 lbs,Average,L
+5'9,200 lbs,Average,XL
+5'9,210 lbs,Average,XL
+5'9,220 lbs,Average,XL
+5'9,230 lbs,Average,XXL
+5'9,240 lbs,Average,XXL
+5'9,250 lbs,Average,XXL
+5'9,120 lbs,Loose,M
+5'9,130 lbs,Loose,M
+5'9,140 lbs,Loose,L
+5'9,150 lbs,Loose,L
+5'9,160 lbs,Loose,XL
+5'9,170 lbs,Loose,XL
+5'9,180 lbs,Loose,XL
+5'9,190 lbs,Loose,XXL
+5'9,200 lbs,Loose,XXL
+5'9,210 lbs,Loose,XXL
+5'9,220 lbs,Loose,XXL
+5'9,230 lbs,Loose,XXL
+5'9,240 lbs,Loose,XXL
+5'9,250 lbs,Loose,XXL
+5'10,120 lbs,Tight,S
+5'10,130 lbs,Tight,S
+5'10,140 lbs,Tight,S
+5'10,150 lbs,Tight,S
+5'10,160 lbs,Tight,M
+5'10,170 lbs,Tight,M
+5'10,180 lbs,Tight,M
+5'10,190 lbs,Tight,L
+5'10,200 lbs,Tight,L
+5'10,210 lbs,Tight,XL
+5'10,220 lbs,Tight,XL
+5'10,230 lbs,Tight,XXL
+5'10,240 lbs,Tight,XXL
+5'10,250 lbs,Tight,XXL
+5'10,120 lbs,Average,S
+5'10,130 lbs,Average,S
+5'10,140 lbs,Average,S
+5'10,150 lbs,Average,M
+5'10,160 lbs,Average,M
+5'10,170 lbs,Average,M
+5'10,180 lbs,Average,L
+5'10,190 lbs,Average,L
+5'10,200 lbs,Average,XL
+5'10,210 lbs,Average,XL
+5'10,220 lbs,Average,XL
+5'10,230 lbs,Average,XXL
+5'10,240 lbs,Average,XXL
+5'10,250 lbs,Average,XXL
+5'10,120 lbs,Loose,M
+5'10,130 lbs,Loose,M
+5'10,140 lbs,Loose,L
+5'10,150 lbs,Loose,L
+5'10,160 lbs,Loose,XL
+5'10,170 lbs,Loose,XL
+5'10,180 lbs,Loose,XL
+5'10,190 lbs,Loose,XXL
+5'10,200 lbs,Loose,XXL
+5'10,210 lbs,Loose,XXL
+5'10,220 lbs,Loose,XXL
+5'10,230 lbs,Loose,XXL
+5'10,240 lbs,Loose,XXL
+5'10,250 lbs,Loose,XXL
+5'11,120 lbs,Tight,S
+5'11,130 lbs,Tight,S
+5'11,140 lbs,Tight,S
+5'11,150 lbs,Tight,M
+5'11,160 lbs,Tight,M
+5'11,170 lbs,Tight,M
+5'11,180 lbs,Tight,L
+5'11,190 lbs,Tight,L
+5'11,200 lbs,Tight,L
+5'11,210 lbs,Tight,XL
+5'11,220 lbs,Tight,XL
+5'11,230 lbs,Tight,XXL
+5'11,240 lbs,Tight,XXL
+5'11,250 lbs,Tight,XXL
+5'11,120 lbs,Average,S
+5'11,130 lbs,Average,S
+5'11,140 lbs,Average,S
+5'11,150 lbs,Average,M
+5'11,160 lbs,Average,M
+5'11,170 lbs,Average,M
+5'11,180 lbs,Average,L
+5'11,190 lbs,Average,L
+5'11,200 lbs,Average,XL
+5'11,210 lbs,Average,XL
+5'11,220 lbs,Average,XL
+5'11,230 lbs,Average,XXL
+5'11,240 lbs,Average,XXL
+5'11,250 lbs,Average,XXL
+5'11,120 lbs,Loose,M
+5'11,130 lbs,Loose,M
+5'11,140 lbs,Loose,L
+5'11,150 lbs,Loose,L
+5'11,160 lbs,Loose,XL
+5'11,170 lbs,Loose,XL
+5'11,180 lbs,Loose,XL
+5'11,190 lbs,Loose,XXL
+5'11,200 lbs,Loose,XXL
+5'11,210 lbs,Loose,XXL
+5'11,220 lbs,Loose,XXL
+5'11,230 lbs,Loose,XXL
+5'11,240 lbs,Loose,XXL
+5'11,250 lbs,Loose,XXL
+6'0,120 lbs,Tight,S
+6'0,130 lbs,Tight,S
+6'0,140 lbs,Tight,S
+6'0,150 lbs,Tight,M
+6'0,160 lbs,Tight,M
+6'0,170 lbs,Tight,M
+6'0,180 lbs,Tight,M
+6'0,190 lbs,Tight,L
+6'0,200 lbs,Tight,L
+6'0,210 lbs,Tight,XL
+6'0,220 lbs,Tight,XL
+6'0,230 lbs,Tight,XXL
+6'0,240 lbs,Tight,XXL
+6'0,250 lbs,Tight,XXL
+6'0,120 lbs,Average,S
+6'0,130 lbs,Average,S
+6'0,140 lbs,Average,S
+6'0,150 lbs,Average,M
+6'0,160 lbs,Average,M
+6'0,170 lbs,Average,M
+6'0,180 lbs,Average,L
+6'0,190 lbs,Average,L
+6'0,200 lbs,Average,XL
+6'0,210 lbs,Average,XL
+6'0,220 lbs,Average,XL
+6'0,230 lbs,Average,XXL
+6'0,240 lbs,Average,XXL
+6'0,250 lbs,Average,XXL
+6'0,120 lbs,Loose,M
+6'0,130 lbs,Loose,M
+6'0,140 lbs,Loose,L
+6'0,150 lbs,Loose,L
+6'0,160 lbs,Loose,XL
+6'0,170 lbs,Loose,XL
+6'0,180 lbs,Loose,XL
+6'0,190 lbs,Loose,XXL
+6'0,200 lbs,Loose,XXL
+6'0,210 lbs,Loose,XXL
+6'0,220 lbs,Loose,XXL
+6'0,230 lbs,Loose,XXL
+6'0,240 lbs,Loose,XXL
+6'0,250 lbs,Loose,XXL
+6'1,120 lbs,Tight,S
+6'1,130 lbs,Tight,S
+6'1,140 lbs,Tight,S
+6'1,150 lbs,Tight,M
+6'1,160 lbs,Tight,M
+6'1,170 lbs,Tight,M
+6'1,180 lbs,Tight,L
+6'1,190 lbs,Tight,L
+6'1,200 lbs,Tight,L
+6'1,210 lbs,Tight,XL
+6'1,220 lbs,Tight,XL
+6'1,230 lbs,Tight,XXL
+6'1,240 lbs,Tight,XXL
+6'1,250 lbs,Tight,XXL
+6'1,120 lbs,Average,S
+6'1,130 lbs,Average,S
+6'1,140 lbs,Average,S
+6'1,150 lbs,Average,M
+6'1,160 lbs,Average,M
+6'1,170 lbs,Average,M
+6'1,180 lbs,Average,L
+6'1,190 lbs,Average,L
+6'1,200 lbs,Average,XL
+6'1,210 lbs,Average,XL
+6'1,220 lbs,Average,XL
+6'1,230 lbs,Average,XXL
+6'1,240 lbs,Average,XXL
+6'1,250 lbs,Average,XXL
+6'1,120 lbs,Loose,M
+6'1,130 lbs,Loose,M
+6'1,140 lbs,Loose,L
+6'1,150 lbs,Loose,L
+6'1,160 lbs,Loose,XL
+6'1,170 lbs,Loose,XL
+6'1,180 lbs,Loose,XL
+6'1,190 lbs,Loose,XXL
+6'1,200 lbs,Loose,XXL
+6'1,210 lbs,Loose,XXL
+6'1,220 lbs,Loose,XXL
+6'1,230 lbs,Loose,XXL
+6'1,240 lbs,Loose,XXL
+6'1,250 lbs,Loose,XXL
+6'2,120 lbs,Tight,M
+6'2,130 lbs,Tight,M
+6'2,140 lbs,Tight,M
+6'2,150 lbs,Tight,M
+6'2,160 lbs,Tight,M
+6'2,170 lbs,Tight,M
+6'2,180 lbs,Tight,M
+6'2,190 lbs,Tight,L
+6'2,200 lbs,Tight,L
+6'2,210 lbs,Tight,XL
+6'2,220 lbs,Tight,XL
+6'2,230 lbs,Tight,XXL
+6'2,240 lbs,Tight,XXL
+6'2,250 lbs,Tight,XXL
+6'2,120 lbs,Average,M
+6'2,130 lbs,Average,M
+6'2,140 lbs,Average,M
+6'2,150 lbs,Average,M
+6'2,160 lbs,Average,M
+6'2,170 lbs,Average,M
+6'2,180 lbs,Average,L
+6'2,190 lbs,Average,L
+6'2,200 lbs,Average,XL
+6'2,210 lbs,Average,XL
+6'2,220 lbs,Average,XL
+6'2,230 lbs,Average,XXL
+6'2,240 lbs,Average,XXL
+6'2,250 lbs,Average,XXL
+6'2,120 lbs,Loose,M
+6'2,130 lbs,Loose,M
+6'2,140 lbs,Loose,L
+6'2,150 lbs,Loose,L
+6'2,160 lbs,Loose,XL
+6'2,170 lbs,Loose,XL
+6'2,180 lbs,Loose,XL
+6'2,190 lbs,Loose,XXL
+6'2,200 lbs,Loose,XXL
+6'2,210 lbs,Loose,XXL
+6'2,220 lbs,Loose,XXL
+6'2,230 lbs,Loose,XXL
+6'2,240 lbs,Loose,XXL
+6'2,250 lbs,Loose,XXL
+6'3,120 lbs,Tight,M
+6'3,130 lbs,Tight,M
+6'3,140 lbs,Tight,M
+6'3,150 lbs,Tight,M
+6'3,160 lbs,Tight,M
+6'3,170 lbs,Tight,M
+6'3,180 lbs,Tight,M
+6'3,190 lbs,Tight,L
+6'3,200 lbs,Tight,L
+6'3,210 lbs,Tight,XL
+6'3,220 lbs,Tight,XL
+6'3,230 lbs,Tight,XXL
+6'3,240 lbs,Tight,XXL
+6'3,250 lbs,Tight,XXL
+6'3,120 lbs,Average,M
+6'3,130 lbs,Average,M
+6'3,140 lbs,Average,M
+6'3,150 lbs,Average,M
+6'3,160 lbs,Average,M
+6'3,170 lbs,Average,M
+6'3,180 lbs,Average,L
+6'3,190 lbs,Average,L
+6'3,200 lbs,Average,XL
+6'3,210 lbs,Average,XL
+6'3,220 lbs,Average,XL
+6'3,230 lbs,Average,XXL
+6'3,240 lbs,Average,XXL
+6'3,250 lbs,Average,XXL
+6'3,120 lbs,Loose,M
+6'3,130 lbs,Loose,M
+6'3,140 lbs,Loose,L
+6'3,150 lbs,Loose,L
+6'3,160 lbs,Loose,XL
+6'3,170 lbs,Loose,XL
+6'3,180 lbs,Loose,XL
+6'3,190 lbs,Loose,XXL
+6'3,200 lbs,Loose,XXL
+6'3,210 lbs,Loose,XXL
+6'3,220 lbs,Loose,XXL
+6'3,230 lbs,Loose,XXL
+6'3,240 lbs,Loose,XXL
+6'3,250 lbs,Loose,XXL
+6'4,120 lbs,Tight,M
+6'4,130 lbs,Tight,M
+6'4,140 lbs,Tight,M
+6'4,150 lbs,Tight,M
+6'4,160 lbs,Tight,M
+6'4,170 lbs,Tight,M
+6'4,180 lbs,Tight,L
+6'4,190 lbs,Tight,L
+6'4,200 lbs,Tight,L
+6'4,210 lbs,Tight,XL
+6'4,220 lbs,Tight,XL
+6'4,230 lbs,Tight,XXL
+6'4,240 lbs,Tight,XXL
+6'4,250 lbs,Tight,XXL
+6'4,120 lbs,Average,M
+6'4,130 lbs,Average,M
+6'4,140 lbs,Average,M
+6'4,150 lbs,Average,M
+6'4,160 lbs,Average,M
+6'4,170 lbs,Average,M
+6'4,180 lbs,Average,L
+6'4,190 lbs,Average,L
+6'4,200 lbs,Average,XL
+6'4,210 lbs,Average,XL
+6'4,220 lbs,Average,XL
+6'4,230 lbs,Average,XXL
+6'4,240 lbs,Average,XXL
+6'4,250 lbs,Average,XXL
+6'4,120 lbs,Loose,L
+6'4,130 lbs,Loose,L
+6'4,140 lbs,Loose,L
+6'4,150 lbs,Loose,L
+6'4,160 lbs,Loose,XL
+6'4,170 lbs,Loose,XL
+6'4,180 lbs,Loose,XL
+6'4,190 lbs,Loose,XXL
+6'4,200 lbs,Loose,XXL
+6'4,210 lbs,Loose,XXL
+6'4,220 lbs,Loose,XXL
+6'4,230 lbs,Loose,XXL
+6'4,240 lbs,Loose,XXL
+6'4,250 lbs,Loose,XXL
+6'5,120 lbs,Tight,M
+6'5,130 lbs,Tight,M
+6'5,140 lbs,Tight,M
+6'5,150 lbs,Tight,M
+6'5,160 lbs,Tight,M
+6'5,170 lbs,Tight,M
+6'5,180 lbs,Tight,M
+6'5,190 lbs,Tight,L
+6'5,200 lbs,Tight,L
+6'5,210 lbs,Tight,XL
+6'5,220 lbs,Tight,XL
+6'5,230 lbs,Tight,XXL
+6'5,240 lbs,Tight,XXL
+6'5,250 lbs,Tight,XXL
+6'5,120 lbs,Average,M
+6'5,130 lbs,Average,M
+6'5,140 lbs,Average,M
+6'5,150 lbs,Average,M
+6'5,160 lbs,Average,M
+6'5,170 lbs,Average,M
+6'5,180 lbs,Average,L
+6'5,190 lbs,Average,L
+6'5,200 lbs,Average,XL
+6'5,210 lbs,Average,XL
+6'5,220 lbs,Average,XL
+6'5,230 lbs,Average,XXL
+6'5,240 lbs,Average,XXL
+6'5,250 lbs,Average,XXL
+6'5,120 lbs,Loose,L
+6'5,130 lbs,Loose,L
+6'5,140 lbs,Loose,L
+6'5,150 lbs,Loose,L
+6'5,160 lbs,Loose,XL
+6'5,170 lbs,Loose,XL
+6'5,180 lbs,Loose,XL
+6'5,190 lbs,Loose,XXL
+6'5,200 lbs,Loose,XXL
+6'5,210 lbs,Loose,XXL
+6'5,220 lbs,Loose,XXL
+6'5,230 lbs,Loose,XXL
+6'5,240 lbs,Loose,XXL
+6'5,250 lbs,Loose,XXL
+6'6,120 lbs,Tight,M
+6'6,130 lbs,Tight,M
+6'6,140 lbs,Tight,M
+6'6,150 lbs,Tight,M
+6'6,160 lbs,Tight,M
+6'6,170 lbs,Tight,M
+6'6,180 lbs,Tight,M
+6'6,190 lbs,Tight,L
+6'6,200 lbs,Tight,L
+6'6,210 lbs,Tight,XL
+6'6,220 lbs,Tight,XL
+6'6,230 lbs,Tight,XXL
+6'6,240 lbs,Tight,XXL
+6'6,250 lbs,Tight,XXL
+6'6,120 lbs,Average,M
+6'6,130 lbs,Average,M
+6'6,140 lbs,Average,M
+6'6,150 lbs,Average,M
+6'6,160 lbs,Average,M
+6'6,170 lbs,Average,M
+6'6,180 lbs,Average,L
+6'6,190 lbs,Average,L
+6'6,200 lbs,Average,XL
+6'6,210 lbs,Average,XL
+6'6,220 lbs,Average,XL
+6'6,230 lbs,Average,XXL
+6'6,240 lbs,Average,XXL
+6'6,250 lbs,Average,XXL
+6'6,120 lbs,Loose,L
+6'6,130 lbs,Loose,L
+6'6,140 lbs,Loose,L
+6'6,150 lbs,Loose,L
+6'6,160 lbs,Loose,XL
+6'6,170 lbs,Loose,XL
+6'6,180 lbs,Loose,XL
+6'6,190 lbs,Loose,XXL
+6'6,200 lbs,Loose,XXL
+6'6,210 lbs,Loose,XXL
+6'6,220 lbs,Loose,XXL
+6'6,230 lbs,Loose,XXL
+6'6,240 lbs,Loose,XXL
+6'6,250 lbs,Loose,XXL</script>
+
+  <div class="find-your-fit" data-find-your-fit >
+
+    <div class="find-your-fit__inner">
+      <div class="find-your-fit__content">
+
+
+        <h2 class="find-your-fit__title">
+          The T-Shirt Fit Guide
+        </h2>
+        <div class="find-your-fit__text">
+          Every guy likes their shirts to fit a little differently, so we created  The Fit Guide. Enter your information below to  find the perfect fit for your style.
+        </div>
+<!--        <div class="find-your-fit__divider"></div> -->
+
+        <div class="find-your-fit__main">
+          <div class="find-your-fit__form">
+            <div class="find-your-fit__row">
+              <div class="find-your-fit__label">
+                Height
+              </div>
+              <div class="find-your-fit__slider">
+                <input type="range" class="range-input" name="height" />
+              </div>
+              <div class="find-your-fit__value" data-find-your-fit-value>
+                Value
+              </div>
+            </div>
+            <div class="find-your-fit__row">
+              <div class="find-your-fit__label">
+                Weight
+              </div>
+              <div class="find-your-fit__slider">
+                <input type="range" class="range-input" name="weight" /> 
+              </div>
+              <div class="find-your-fit__value" data-find-your-fit-value>
+                Value
+              </div>
+            </div>
+            <div class="find-your-fit__row find-your-fit__row--with-labels">
+              <div class="find-your-fit__label">
+                Fit
+              </div>
+              <div class="find-your-fit__slider">
+                <input type="range" class="range-input" name="fit" /> 
+                <!--
+                <div class="rangeslider-ticks">
+                  <div class="rangeslider-ticks__tick"></div>
+                  <div class="rangeslider-ticks__tick"></div>
+                  <div class="rangeslider-ticks__tick"></div>
+                  <div class="rangeslider-ticks__tick"></div>
+                  <div class="rangeslider-ticks__tick"></div>
+                </div>
+                -->
+              </div>
+              <div class="find-your-fit__value" data-find-your-fit-value>
+                Value
+              </div>
+
+              <div class="find-your-fit__help-label find-your-fit__help-label--left">
+                Tighter
+              </div>
+              <div class="find-your-fit__help-label find-your-fit__help-label--right">
+                Looser
+              </div>
+            </div>
+            <div class="find-your-fit__cta">
+              <div class="button button--full-width" data-find-your-fit-submit>
+                FIND MY FIT
+              </div>
+              <div class="button button--full-width" style="opacity: 0;">
+                &nbsp; <!-- height placeholder -->
+              </div>
+            </div>
+          </div>
+        
+          <div class="find-your-fit__success" >
+            <div class="find-your-fit__success-size" data-find-your-fit-size>
+            </div>
+            <div class="find-your-fit__success-body">
+              We recommend a size <span data-find-your-fit-size></span> for you based on your height, weight, and fit preference.
+            </div>
+            <div class="find-your-fit__add">
+              <div>
+            
+              
+              </div>
+              <div>
+                <div class="button button--gray find-your-fit__button" data-find-your-fit-edit>
+                  EDIT MY INFO
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+
+</div>
