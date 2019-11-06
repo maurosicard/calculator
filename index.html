@@ -1,42 +1,53 @@
+
 <meta name="robots" content="noindex">
 <style> 
- .find-your-fit__title {
-  color: #000;
-  }
+.find-your-fit__title {
+    color: #000;
+    font-size: 46px !important;
+    font-weight: 700 !important;
+    font-family: Helvetica;
+}
+.find-your-fit__text {
+    max-width: 540px;
+    margin: 0 auto;
+    color: #939393;
+    line-height: 1.4;
+    font-size: 18px;
+}
+.find-your-fit__label, .find-your-fit__value {
+    color: #000000 !important;
+    font-weight: 900;
+    font-family: Helvetica;
+}
+.rangeslider__fill {
+  background: #000 !important;
+}
 </style>
 
 
 <script>window.ShopifyAnalytics = window.ShopifyAnalytics || {};
-
 for (var attr in meta) {
   window.ShopifyAnalytics.meta[attr] = meta[attr];
 }</script>
 
 <script class="analytics">(window.gaDevIds=window.gaDevIds||[]).push('BwiEti');
-
-
 (function () {
   var customDocumentWrite = function(content) {
     var jquery = null;
-
     if (window.jQuery) {
       jquery = window.jQuery;
     } else if (window.Checkout && window.Checkout.$) {
       jquery = window.Checkout.$;
     }
-
     if (jquery) {
       jquery('body').append(content);
     }
   };
-
   var isDuplicatedThankYouPageView = function() {
     return document.cookie.indexOf('loggedConversion=' + window.location.pathname) !== -1;
   }
-
   var setCookieIfThankYouPage = function() {
 }
-
   var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
   if (trekkie.integrations) {
     return;
@@ -49,7 +60,6 @@ for (var attr in meta) {
     'trackForm',
     'trackLink'
   ];
-
   trekkie.factory = function(method) {
     return function() {
       var args = Array.prototype.slice.call(arguments);
@@ -77,12 +87,10 @@ for (var attr in meta) {
   trekkie.load(
     {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":2028072,"isMerchantRequest":null,"themeId":77821247511,"themeCityHash":"4666737615294641760","contentLanguage":"en","currency":"USD"}},"Performance":{"navigationTimingApiMeasurementsEnabled":true,"navigationTimingApiMeasurementsSampleRate":1},"Google Analytics":{"trackingId":"UA-39333144-1","domain":"auto","siteSpeedSampleRate":"10","enhancedEcommerce":true,"doubleClick":true,"includeSearch":true},"Facebook Pixel":{"pixelIds":["876939609077456"],"agent":"plshopify1.2"},"Google Gtag Pixel":{"conversionId":"AW-877791215","eventLabels":[{"type":"page_view","action_label":"AW-877791215\/E6m0CNr7nK4BEO-PyKID"},{"type":"purchase","action_label":"AW-877791215\/R6iMCN37nK4BEO-PyKID"},{"type":"view_item","action_label":"AW-877791215\/YKViCOD7nK4BEO-PyKID"},{"type":"add_to_cart","action_label":"AW-877791215\/fu-oCOP7nK4BEO-PyKID"},{"type":"begin_checkout","action_label":"AW-877791215\/zvrfCOb7nK4BEO-PyKID"},{"type":"search","action_label":"AW-877791215\/w93CCOn7nK4BEO-PyKID"},{"type":"add_payment_info","action_label":"AW-877791215\/qT-gCOz7nK4BEO-PyKID"}],"targetCountry":"US"},"Session Attribution":{}}
   );
-
   var loaded = false;
   trekkie.ready(function() {
     if (loaded) return;
     loaded = true;
-
     window.ShopifyAnalytics.lib = window.trekkie;
     
       ga('require', 'linker');
@@ -105,10 +113,8 @@ for (var attr in meta) {
         }
       }
       addListener(window, 'load', function(){
-
       });
     
-
     var originalDocumentWrite = document.write;
     document.write = customDocumentWrite;
     try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
@@ -161,14 +167,12 @@ for (var attr in meta) {
         }
       })();
     
-
     if (!isDuplicatedThankYouPageView()) {
       setCookieIfThankYouPage();
       
         
     }
   });
-
   
 })();
 </script>
