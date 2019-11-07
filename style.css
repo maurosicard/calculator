@@ -97,5 +97,6 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
 }
     .find-your-fit__form {
     max-width: 250px;
+        width: 300px !important;
 }
 }
