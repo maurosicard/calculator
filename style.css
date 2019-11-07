@@ -14,7 +14,9 @@ body {
     font-weight: 700 !important;
     font-family: Helvetica;
 }
-
+.find-your-fit {
+background: #fff !important;
+}
 .find-your-fit__text {
     max-width: 500px !important;
     margin: 0 auto;
