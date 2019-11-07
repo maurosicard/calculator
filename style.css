@@ -71,6 +71,16 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
     padding: 15px 48px !important;
 }
 
+  .find-your-fit_col_2 img {
+     opacity: 0;
+    width: 800px;
+}
+    .find-your-fit_col_2 {
+    background: url('/true-classic-fit_bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
 @media only screen and (max-width: 1024px) {
     .find-your-fit__inner {
         flex-direction: column;
@@ -80,15 +90,7 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
        width: 100% !important; 
     }
     
-    .find-your-fit_col_2 img {
-     opacity: 0;
-    width: 800px;
-}
-    .find-your-fit_col_2 {
-    background: url('/true-classic-fit_bg.jpg');
-    background-size: cover;
-    background-position: center;
-}
+
     .find-your-fit__content {
         padding: 60px 35px;
     }
