@@ -55,7 +55,5 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
     }  
 .find-your-fit_col {
    width: 50% !important;
-}
-.find-your-fit__content {
-    max-width: 100%;
+    max-width: 100% !important;
 }
