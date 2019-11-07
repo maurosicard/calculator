@@ -63,3 +63,25 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
    width: 50% !important;
     max-width: 100% !important;
 }
+
+@media only screen and  ( max-wdith. 1024px) {
+    .find-your-fit__inner {
+        flex-direction: column;
+        height: auto;
+    }
+    .find-your-fit_col {
+       width: 100% !important; 
+    }
+    
+    .find-your-fit_col_2 img {
+    opacity: 0;
+    }
+    .find-your-fit_col_2 {
+    background: url('/true-cl
+        assic-fit_bg.jpg');
+    }
+    .find-your-fit__content {
+        padding: 60px 35px;
+    }
+    
+}
