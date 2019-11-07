@@ -56,15 +56,16 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
     margin: auto;
 }
   
-    .fit-logo {
-       width: 78px;
-    }  
+.fit-logo {
+    width: 78px;
+    margin: auto;
+}
 .find-your-fit_col {
    width: 50% !important;
     max-width: 100% !important;
 }
 
-@media only screen and  (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
     .find-your-fit__inner {
         flex-direction: column;
         height: auto !important;
@@ -86,4 +87,15 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
         padding: 60px 35px;
     }
     
+}
+@media only screen and (max-width: 650px) { 
+    .find-your-fit__content {
+        height: auto !important;
+    }
+        .find-your-fit_col_2 img {
+    width: 800px;
+}
+    .find-your-fit__form {
+    max-width: 250px;
+}
 }
