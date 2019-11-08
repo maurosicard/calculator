@@ -71,7 +71,7 @@ box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.15);
     padding: 15px 48px !important;
 }
 .find-your-fit_col_2 {
-    background: url(/true-classic-fit_bg.jpg);
+    background: url(/true-classic-resize.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -100,7 +100,7 @@ opacity: 0;
     width: 530px;
 }
     .find-your-fit_col_2 {
-    background: url('/true-classic-fit_bg.jpg');
+    background: url('/true-classic-resize.jpg');
     background-size: cover;
     background-position: center;
 }
